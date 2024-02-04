@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Divider from '@/components/ui/Divider';
 import { useMagic } from '../MagicProvider';
+import { useAlchemyProvider } from '../AlchemyProvider';
 import FormButton from '@/components/ui/FormButton';
 import FormInput from '@/components/ui/FormInput';
 import ErrorText from '@/components/ui/ErrorText';
@@ -15,6 +16,7 @@ import Link from 'public/link.svg';
 
 const SendTransaction = () => {
   const { web3 } = useMagic();
+  const { provider } = useAlchemyProvider();
   const [toAddress, setToAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [disabled, setDisabled] = useState(!toAddress || !amount);
